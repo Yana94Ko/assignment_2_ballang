@@ -2,9 +2,12 @@ import React, { useState } from "react";
 import { useAuth } from "../../contexts/auth.context";
 import * as S from "./SignIn.style";
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { setProfile } from "../../store/reducers/profile.reducer";
 
 function SignInPage() {
-  const { isLoggedIn, signIn } = useAuth();
+  const { signIn } = useAuth();
+  const dispatch = useDispatch();
   const navigate = useNavigate();
   const [username, setUsername] = useState("udemy");
   const [password, setPassword] = useState("udemy");
@@ -15,6 +18,7 @@ function SignInPage() {
 
     if (username === "udemy" && password === "udemy") {
       signIn();
+      dispatch(setProfile(username));
       navigate("/");
     } else {
       return alert("아이디 또는 비밀번호가 잘못되었습니다.");

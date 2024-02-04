@@ -1,12 +1,18 @@
 import React, { useState } from "react";
 import HeaderStyled from "./style/HeaderStyled";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../../contexts/auth.context";
+import { useSelector } from "react-redux";
 
 function Header() {
+  const navigate = useNavigate();
   const [items, setItems] = useState([]); //(임시) 리덕스 생성시 변경
   const { isLoggedIn, logOut } = useAuth();
-
+  const userId = useSelector((state) => state.profile.userId);
+  const handleClickSignOut = () => {
+    logOut();
+    navigate("/");
+  };
   return (
     <HeaderStyled>
       <div className="header-top-wrapper">
@@ -24,8 +30,8 @@ function Header() {
               ) : (
                 <>
                   <li>
-                    <span>닉네임이 들어올 자리 </span>
-                    <span onClick={logOut}>{}로그아웃</span>
+                    <span>{userId} </span>
+                    <span onClick={handleClickSignOut}>{}로그아웃</span>
                   </li>
                   <li>
                     <span>|</span>
@@ -33,16 +39,14 @@ function Header() {
                   <li>
                     <Link to="my-page">마이페이지</Link>
                   </li>
-                  <li>
-                    <span>|</span>
-                  </li>
-                  <li>
-                    <Link onClick={() => alert("준비중인 페이지 입니다.")}>
-                      주문배송
-                    </Link>{" "}
-                  </li>
                 </>
               )}
+              <li>
+                <span>|</span>
+              </li>
+              <li>
+                <Link to="cart">장바구니</Link>{" "}
+              </li>
               <li>
                 <span>|</span>
               </li>
@@ -77,10 +81,12 @@ function Header() {
               />
               <i className="fa fa-search fa-2x" aria-hidden="true" />
             </div>
-            <div className="cart-wrapper">
-              <i className="fa fa-shopping-bag fa-2x" aria-hidden="true"></i>
-              <span>{items.length}</span>
-            </div>
+            <Link to="/cart">
+              <div className="cart-wrapper">
+                <i className="fa fa-shopping-bag fa-2x" aria-hidden="true"></i>
+                <span>{items.length}</span>
+              </div>
+            </Link>
           </div>
         </div>
       </div>
