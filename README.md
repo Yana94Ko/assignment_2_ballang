@@ -12,7 +12,7 @@
 - [x] Redux (Toolkit, 장바구니와 프로필 정보 한정)
 - 스타일링은 다음 중 하나 또는 그 이상의 조합으로 구성.
   - [x] Tailwind CSS
-  - [ ] CSS in JS (Styled Components)
+  - [x] CSS in JS (Styled Components)
   - [x] CSS Module (Sass 사용 가능)
 
 2. 다음의 페이지들이 있어야 합니다.
