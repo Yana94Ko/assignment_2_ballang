@@ -5,12 +5,17 @@ import "./index.css";
 import { Provider } from "react-redux";
 import store from "./store/store";
 import { BrowserRouter } from "react-router-dom";
+import GlobalStyles from "./style/GlobalStyles";
+import { AuthProvider } from "./contexts/auth.context";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <Provider store={store}>
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
-  </Provider>
+  <AuthProvider>
+    <Provider store={store}>
+      <BrowserRouter>
+        <GlobalStyles />
+        <App />
+      </BrowserRouter>
+    </Provider>
+  </AuthProvider>
 );
