@@ -1,6 +1,13 @@
 import { createGlobalStyle } from "styled-components";
 
 const GlobalStyles = createGlobalStyle`
+    html, body, #root{
+        height:100%; 
+        width: 100%;
+        padding:0;
+        margin:0;
+        line-height: 1;
+    }
     a{
         text-decoration: none;
         color: inherit;
@@ -16,10 +23,7 @@ const GlobalStyles = createGlobalStyle`
         font-size: 10px;
         vertical-align: baseline;
     }
-    body{
-        line-height: 1;
-        margin-bottom: 100px;
-    }
+
     ol, ul{
         list-style: none;
         margin-left: 0;

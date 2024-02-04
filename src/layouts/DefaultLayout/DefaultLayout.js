@@ -5,7 +5,7 @@ import Footer from "../../components/Footer";
 
 function DefaultLayout() {
   return (
-    <div>
+    <div style={{ minHeight: "70%" }}>
       <Header />
       <Outlet />
       <Footer />
