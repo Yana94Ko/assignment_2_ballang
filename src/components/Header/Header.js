@@ -27,22 +27,22 @@ function Header() {
                     <span>닉네임이 들어올 자리 </span>
                     <span onClick={logOut}>{}로그아웃</span>
                   </li>
+                  <li>
+                    <span>|</span>
+                  </li>
+                  <li>
+                    <Link to="my-page">마이페이지</Link>
+                  </li>
+                  <li>
+                    <span>|</span>
+                  </li>
+                  <li>
+                    <Link onClick={() => alert("준비중인 페이지 입니다.")}>
+                      주문배송
+                    </Link>{" "}
+                  </li>
                 </>
               )}
-              <li>
-                <span>|</span>
-              </li>
-              <li>
-                <Link to="my-page">마이페이지</Link>
-              </li>
-              <li>
-                <span>|</span>
-              </li>
-              <li>
-                <Link onClick={() => alert("준비중인 페이지 입니다.")}>
-                  주문배송
-                </Link>{" "}
-              </li>
               <li>
                 <span>|</span>
               </li>
