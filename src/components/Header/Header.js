@@ -68,11 +68,11 @@ function Header() {
               <li>MEN</li>
             </ul>
           </div>
-          <div className="header-middle-center">
-            <Link to="/">
+          <Link to="/">
+            <div className="header-middle-center">
               <img src="ballang_logo.png" alt="ballang_logo" />
-            </Link>
-          </div>
+            </div>
+          </Link>
           <div className="header-middle-right">
             <div className="search-wrapper">
               <input

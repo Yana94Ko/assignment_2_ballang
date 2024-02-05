@@ -7,9 +7,13 @@ import { Link } from "react-router-dom";
 function ProductList({ productType }) {
   const [products, setProducts] = useState([]);
   useEffect(() => {
-    api.products
-      .getProducts(productType)
-      .then((products) => setProducts(products));
+    if (productType !== "cart-item") {
+      api.products
+        .getProducts(productType)
+        .then((products) => setProducts(products));
+    } else {
+      setProducts([]);
+    }
   }, [productType]);
   return (
     <S.Wrapper>
